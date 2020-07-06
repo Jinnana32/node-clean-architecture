@@ -25,9 +25,11 @@ export interface IUser extends mongoose.Document {
 }
 
 export class UserModel {
+    _id?: string
     email: string
     password: string
-    constructor(email: string, password: string){
+    constructor(email: string, password: string, id?: string){
+        this._id = id
         this.email = email;
         this.password = password;
     }

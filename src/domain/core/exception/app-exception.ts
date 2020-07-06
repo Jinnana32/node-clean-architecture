@@ -12,7 +12,7 @@ export namespace AppException {
             });
         }
 
-        create(err: any) : UnexpectedException {
+        public static create(err: any) : UnexpectedException {
             return new UnexpectedException(err)
         }
     }

@@ -1,9 +1,9 @@
 import { IUserRepository } from "../../domain/repository/user-repository";
 import { LoginParams } from "../../domain/params/login-params";
-import { RegisterResp } from '../../domain/resp/register-resp'
 import { UserModel } from "../models/user-model";
 import { UserService } from "../services/user-service";
 import { Result } from '../../domain/core/result'
+import { RegisterParams } from '../../domain/params/register-params'
 
 export class UserRepositoryImpl implements IUserRepository {
 
@@ -13,12 +13,12 @@ export class UserRepositoryImpl implements IUserRepository {
         this.userService = userService
     }
 
-    async login(params: LoginParams) : Promise<Result<UserModel>> {
+    login(params: LoginParams) : Promise<Result<UserModel>> {
         return this.userService.login(params)
     }
 
-    register() : any {
-        return null
+    register(params: RegisterParams) : Promise<Result<UserModel>> {
+        return this.userService.register(params);
     }
 
 }
